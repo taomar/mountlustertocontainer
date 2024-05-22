@@ -1,11 +1,5 @@
-bash repo.bash
-apt install amlfs-lustre-client-2.15.4-42-gd6d405d=$(uname -r) -y
-mkdir -p /eph/nvme0/lusterfs
-mount -t lustre -o noatime,user_xattr IP@tcp0:/lustrefs /lustrefs
-
-
 # Execute a bash script stored in the file 'repo.bash'  
-bash srepo.bash 
+bash repo.bash 
   
 # Install a Azure lustre client - amlfs-lustre-client  
 apt install filesystem-client-version=$(uname -r) -y  
