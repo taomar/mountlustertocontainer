@@ -1,0 +1,35 @@
+# Defines the schema for the command job  
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json  
+  
+# Defines the type of the job, which is a command  
+type: command  
+  
+# Specifies the source code for the job  
+code: src  
+
+# First, bash into the mountlusre.ssh then execute your code. The sleep here is for testing  
+command: bash mount_script.sh && python sleep_script.py  
+  
+# Specifies the environment for the job, in this case it's a PyTorch environment  
+environment: azureml:AzureML-acpt-pytorch-1.13-cuda11.7@latest  
+  
+# Specifies the services required for the job  
+services:  
+  my_jupyterlab:  
+    # The type of service is Jupyter Lab  
+    type: jupyter_lab  
+    # Specifies that the service should be available on all nodes  
+    nodes: all  
+  
+# Defines the compute resources for the job  
+compute: AnonymizedCompute  
+  
+# Specifies the resources needed for the job  
+resources:  
+  # The number of instances required is one  
+  instance_count: 1  
+
+
+experiment_name: Containerlustremount
+display_name: Containerlustremount
+description: Containerlustremount
